@@ -1,0 +1,15 @@
+<div class="col mb-5 card-group">
+
+    <div class="card">
+        <img class="card-img-top" src="https://via.placeholder.com/362x500/DDDDDD/808080?text=Kép+termékről" alt="Card image cap">
+        <div class="card-body">
+            <a href="index.php?module=products&id={$product.id}" class="is-ajax text-reset text-decoration-none stretched-link">
+                <h5 class="card-title">{$product.design} {$product.type}</h5>
+            </a>
+            <p class="card-text">{$product.brand}</p>
+        </div>
+        <div class="card-footer text-right">
+            <b class="text-muted">{$product.price} Ft.</b>
+        </div>
+    </div>
+</div>

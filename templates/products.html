@@ -1,0 +1,69 @@
+
+<h2 class="text-center user-select-none pb-3">{$category_name}</h2>
+<div id="filter" class="card my-3 rounded-lg">
+    <div class="card-header bg-warning text-uppercase user-select-none d-flex justify-content-between" data-toggle="collapse" data-target="#collapseFilter">
+        Szűrő
+        <span><i class="far fa-arrow-alt-circle-down"></i></span>
+    </div>
+    <div class="card-body collapse p-0" id="collapseFilter">
+        <form action="">
+            <input type="hidden" id="module" name="module" value="products">
+            <input type="hidden" id="category_id" name="category_id" value="{$category_id}">
+            <div class="row row-cols-2 row-cols-lg-3 mx-3">
+                <div class="col">
+                    <h5 class="my-3">Márkák</h5>
+                    {$filter_brands}
+                </div>
+                <div class="col">
+                    <h5 class="my-3">Kialakítás</h5>
+                    {$filter_design}
+                </div>
+                <div class="col">
+                    <h5 class="my-3">Ár</h5>
+                    <div class="form-group">
+                        <label for="minPrice">Min:</label>
+                        <input type="number" class="form-control" id="minPrice" name="price[min]">
+                    </div>
+                    <div class="form-group">
+                        <label for="maxPrice">Max:</label>
+                        <input type="number" class="form-control" id="maxPrice" name="price[max]">
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-primary m-3">Szűrés</button>
+                <button type="reset" id="resetButton" class="btn btn-danger m-3">Összes szűrő törlése</button>
+                
+            </div>
+        </form>
+    </div>
+</div>
+<hr>
+<h4 class="text-center my-3">{$total_count}</h4>
+<div class="row row-cols-1 row-cols-lg-3">{$products}</div>
+
+<nav>
+    <ul class="pagination justify-content-center">
+        <li class="page-item {$previousIsDisabled}"><a class="is-ajax page-link" href="{$url}&page=1">Első</a></li>
+
+        <li class="page-item {$previousIsDisabled}">
+            <a class="is-ajax page-link" href="{$url}&page={$page-1}" aria-label="Előző">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+
+        {$previousPages}
+
+        <li class="page-item active"><a class="is-ajax page-link" href="{$url}&page={$page}">{$page}</a></li>
+
+        {$nextPages}
+
+        <li class="page-item {$nextIsDisabled}">
+            <a class="is-ajax page-link" href="{$url}&page={$page+1}" aria-label="Következő">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+
+        <li class="page-item {$nextIsDisabled}"><a class="is-ajax page-link" href="{$url}&page={$total_pages}">Utolsó</a></li>
+    </ul>
+</nav>

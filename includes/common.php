@@ -1,6 +1,8 @@
 <?php
 
-session_start();
+session_start([
+    'cookie_lifetime' => 86400,
+]);
 
 //require './includes/PHPMailer/Exception.php';
 //require './includes/PHPMailer/PHPMailer.php';

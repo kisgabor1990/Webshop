@@ -1,9 +1,6 @@
 <?php
 
-require('./includes/constants.php');
-require('./includes/functions.php');
-require('./includes/template_engine.php');
-require('./includes/db_connection.php');
+require('./includes/common.php');
 
 $categories = getCategories($db);
 $menu = getMenu();
@@ -18,6 +15,9 @@ show_template('layout', [
     'categories_sidebar' => $categories['categories_sidebar'],
     'content' => $content,
     'newest' => $newest,
+    'profil' => isLoggedIn() ? parse_template('profil', [
+        'name' => $_SESSION['name'],
+    ]) : parse_template('login', []),
 ]);
 
 mysqli_close($db);

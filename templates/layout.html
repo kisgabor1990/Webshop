@@ -109,21 +109,8 @@
                                     <button class="btn btn-outline-success btn-circle btn-xl mr-2" type="button" id="profilButton" data-toggle="dropdown" data-tooltip="tooltip" data-placement="right" title="Profil!" aria-haspopup="true" aria-expanded="false">
                                         <i class="fas fa-user"></i>
                                     </button>
-                                    <div class="dropdown-menu" aria-labelledby="profilButton">
-                                        <form class="px-4 py-3">
-                                            <div class="form-group">
-                                                <label for="email">Email cím</label>
-                                                <input type="email" class="form-control" id="email" placeholder="email@example.com">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="password">Jelszó</label>
-                                                <input type="password" class="form-control" id="password" placeholder="Password">
-                                            </div>
-                                            <button type="submit" class="btn btn-primary">Bejelentkezés</button>
-                                        </form>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item is-ajax" href="index.php?module=regisztracio">Nincs még fiókja? Regisztráljon!</a>
-                                        <a class="dropdown-item" href="#">Elfelejtette jelszavát?</a>
+                                    <div class="dropdown-menu profil" aria-labelledby="profilButton">
+                                        {$profil}
                                     </div>
                                 </div>
                             </div>

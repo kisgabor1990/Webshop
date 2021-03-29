@@ -1,5 +1,10 @@
 <?php
 
+function isLoggedIn(): bool
+{
+    return isset($_SESSION['name']);
+}
+
 function getModule() {
     ob_start();
     $module = $_GET['module'] ?? 'home';

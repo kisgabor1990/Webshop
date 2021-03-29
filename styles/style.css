@@ -14,6 +14,9 @@
     background-color: #1e1c1f;
 }
 
+.profil {
+    border-radius: 20px;
+}
 #searchButton {
     font-size: 24px;
     border-radius: 100%;

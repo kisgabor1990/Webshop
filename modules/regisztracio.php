@@ -1,6 +1,10 @@
 <?php
 
-require './includes/db_connection.php';
+require('./includes/db_connection.php');
+
+if (isLoggedIn()) {
+    header('Location: index.php?module=home');
+}
 
 if (isset($_POST) && isset($_POST['email'])) {
     $valid = true;
@@ -112,7 +116,7 @@ show_template('regisztracio', [
     'phone' => (isset($valid) && !$valid) ? $_POST['phone'] : '',
     'billing-name' => (isset($valid) && !$valid) ? $_POST['billing-name'] : '',
     'billing-taxnum' => (isset($valid) && !$valid && $_POST['choose_company'] == 'is-company') ? $_POST['billing-taxnum'] : '',
-    'billing-taxnum-hidden' => (isset($valid) && !$valid && $_POST['choose_company'] == 'is-person') ? 'style="display: none"' : '',
+    'billing-taxnum-hidden' => (!isset($valid) && !isset($_POST['choose_company'])) || (isset($valid) && !$valid && $_POST['choose_company'] == 'is-person') ? 'style="display: none"' : '',
     'billing-taxnum-disabled' => (isset($valid) && !$valid && $_POST['choose_company'] == 'is-person') ? 'disabled' : '',
     'billing-city' => (isset($valid) && !$valid) ? $_POST['billing-city'] : '',
     'billing-address' => (isset($valid) && !$valid) ? $_POST['billing-address'] : '',

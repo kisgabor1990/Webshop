@@ -11,6 +11,7 @@ define('AJAX_MODULES', [
     'search',
     'products',
     'regisztracio',
+    'password_recovery',
 ]);
 
 define('MENU', [

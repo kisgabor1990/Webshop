@@ -4,9 +4,9 @@ session_start([
     'cookie_lifetime' => 86400,
 ]);
 
-//require './includes/PHPMailer/Exception.php';
-//require './includes/PHPMailer/PHPMailer.php';
-//require './includes/PHPMailer/SMTP.php';
+require './includes/PHPMailer/Exception.php';
+require './includes/PHPMailer/PHPMailer.php';
+require './includes/PHPMailer/SMTP.php';
 
 require('./includes/constants.php');
 require('./includes/db_connection.php');

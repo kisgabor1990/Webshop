@@ -38,10 +38,10 @@
                         <a class="nav-link is-ajax nav-kosar" href="index.php?module=kosar">Kosár</a>
 
                         <form action="index.php?module=search" class="form-inline m-4 is-ajax" method="get">
-                            <input type="hidden" id="module" name="module" value="search">
+                            <input type="hidden" name="module" value="search">
                             <div class="input-group w-100">
 
-                                <input type="text" class="form-control" id="sidebarSearchInput" name="query" placeholder="kulcsszó" required>
+                                <input type="text" class="form-control" name="query" placeholder="kulcsszó" required>
                                 <div class="input-group-append">
                                     <button type="submit" class="btn btn-warning"><i class="fas fa-search"></i></button>
                                 </div>
@@ -83,10 +83,10 @@
                                 <div class="row">
                                     <div class="col">
                                         <form action="index.php?module=search" class="form-inline is-ajax" method="get">
-                                            <input type="hidden" id="module" name="module" value="search">
+                                            <input type="hidden" name="module" value="search">
                                             <div class="form-row">
                                                 <div class="col-auto">
-                                                    <input type="text" class="form-control mr-3" id="sidebarSearchInput" name="query" placeholder="Keresés" required>
+                                                    <input type="text" class="form-control mr-3" name="query" placeholder="Keresés" required>
                                                 </div>
                                             </div>
                                             <div class="form-row">
@@ -122,7 +122,7 @@
                                             <button type="submit" class="btn btn-primary">Bejelentkezés</button>
                                         </form>
                                         <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">Nincs még fiókja? Regisztráljon!</a>
+                                        <a class="dropdown-item is-ajax" href="index.php?module=regisztracio">Nincs még fiókja? Regisztráljon!</a>
                                         <a class="dropdown-item" href="#">Elfelejtette jelszavát?</a>
                                     </div>
                                 </div>

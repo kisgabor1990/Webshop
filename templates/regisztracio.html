@@ -1,0 +1,112 @@
+{$alert_message}
+<div class="w-100">
+    <div class="card">
+        <form id="regForm" action="index.php?module=regisztracio" method="post">
+            <div class="card-header bg-success text-white">Regisztráció</div>
+            <div class="card-body">
+                <div class="row">
+
+                    <div class="col-12 col-lg-6 mb-5">
+                        <p class="h3 mb-5">Regisztrációs adatok</p>
+                        
+                        <div class="form-group">
+                            <label for="email">Email cím</label>
+                            <input type="email" class="form-control" id="reg_email" name="email" value="{$email}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Jelszó</label>
+                            <input type="password" class="form-control" id="reg_password" name="password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password2">Jelszó mégegyszer</label>
+                            <input type="password" class="form-control" id="reg_password2" name="password2" required>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="choose_company" id="is-company" value="is-company" {$is-company}>
+                            <label class="form-check-label" for="is-company">
+                                Cég
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="choose_company" id="is-person" value="is-person" {$is-person}>
+                            <label class="form-check-label" for="is-person">
+                                Magánszemély
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 mb-5">
+                        <p class="h3 mb-5">Kapcsolattartó adatok</p>
+                        <div class="form-group">
+                            <label for="phone">Telefonszám</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text" id="btnGroupAddon">+36</div>
+                                </div>
+                                <input type="text" class="form-control" id="phone" name="phone" pattern="[0-9]{7,}"  value="{$phone}" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 mb-5">
+                        <p class="h3 mb-5">Számlázási adatok</p>
+                        <div class="form-group">
+                            <label for="billing-name">Teljes név</label>
+                            <input type="text" class="form-control" id="billing-name" name="billing-name"  value="{$billing-name}" required>
+                        </div>
+                        <div id="taxnum" class="form-group" {$billing-taxnum-hidden}>
+                            <label for="billing-taxnum">Cég esetén adószám</label>
+                            <input type="number" class="form-control" id="billing-taxnum" name="billing-taxnum"  value="{$billing-taxnum}" required {$billing-taxnum-disabled}>
+                        </div>
+                        <div class="form-group">
+                            <label for="billing-city">Város</label>
+                            <input type="text" class="form-control" id="billing-city" name="billing-city" value="{$billing-city}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="billing-address">Utca / Házszám</label>
+                            <input type="text" class="form-control" id="billing-address" name="billing-address" value="{$billing-address}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="billing-zip">Irányítószám</label>
+                            <input type="text" class="form-control" id="billing-zip" name="billing-zip" pattern="[0-9]{4}" value="{$billing-zip}" required>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="shipping_same" name="shipping_same" value="true" {$shipping_same}>
+                            <label class="form-check-label" for="shipping_same">
+                                A szállítási adatok megegyeznek a számlázási adatokkal.
+                            </label>
+                        </div>
+                    </div>
+                    <div id="shippingData" class="col-12 col-lg-6 mb-5" {$shipping_same_hidden}>
+                        <p class="h3 mb-5">Szállítási adatok</p>
+                        <div class="form-group">
+                            <label for="shipping-name">Teljes név</label>
+                            <input type="text" class="form-control" id="shipping-name" name="shipping-name" value="{$shipping-name}" required {$shipping_same_disabled}>
+                        </div>
+                        <div class="form-group">
+                            <label for="shipping-city">Város</label>
+                            <input type="text" class="form-control" id="shipping-city" name="shipping-city" value="{$shipping-city}" required {$shipping_same_disabled}>
+                        </div>
+                        <div class="form-group">
+                            <label for="shipping-address">Utca / Házszám</label>
+                            <input type="text" class="form-control" id="shipping-address" name="shipping-address" value="{$shipping-address}" required {$shipping_same_disabled}>
+                        </div>
+                        <div class="form-group">
+                            <label for="shipping-zip">Irányítószám</label>
+                            <input type="text" class="form-control" id="shipping-zip" name="shipping-zip" pattern="[0-9]{4}" value="{$shipping-zip}" required {$shipping_same_disabled}>
+                        </div>
+                    </div>
+                    <div class="col-12 mb-5">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="aszf" name="aszf" value="true" required>
+                            <label class="form-check-label" for="aszf">
+                                Elfogadom az Általános szerződési feltételeket és az Adatkezelési tájékoztatót.
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer text-center">
+                <button type="submit" class="btn btn-success">Regisztráció</button>
+            </div>
+        </form>
+    </div>
+</div>

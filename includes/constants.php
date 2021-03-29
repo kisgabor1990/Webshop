@@ -10,6 +10,7 @@ define('AJAX_MODULES', [
     'kosar',
     'search',
     'products',
+    'regisztracio',
 ]);
 
 define('MENU', [

@@ -15,7 +15,6 @@ function closeNav(sidenav) {
 $(function () {
 
     $('[data-tooltip="tooltip"]').tooltip();
-
     // Aktív classok pakolása, oldal betöltésekor
     let params = new URL(window.location.href).searchParams;
     if (params.get('module') !== 'products') {
@@ -24,14 +23,14 @@ $(function () {
         $("a.nav-category" + params.get('category_id')).addClass("active");
     }
 
-    // A legújabbak eltűntetése, ha nem a főoldal
+// A legújabbak eltűntetése, ha nem a főoldal
     if (params.get('module') === 'home' || params.get('module') === null) {
         $("#newest").fadeIn(500);
     } else {
         $("#newest").hide();
     }
 
-    // Mobil nézetben a menük megnyitása/becsukása
+// Mobil nézetben a menük megnyitása/becsukása
     $(".sidenavButton").click(function () {
         let sidenav = $(this).data("id");
         openNav(sidenav);
@@ -40,16 +39,15 @@ $(function () {
         let sidenav = $(this).parent().attr("id");
         closeNav(sidenav);
     });
-
     $(window).scroll(function () {
-        // Az oldal tetejére gomb
+// Az oldal tetejére gomb
         if ($(this).scrollTop() > 500) {
             $("#topButton").css("display", "block");
         } else {
             $("#topButton").css("display", "none");
         }
 
-        // Az oldalsó menü követi a görgetést
+// Az oldalsó menü követi a görgetést
         if ($(this).scrollTop() < $("#mainContent").height() - 50) {
 
             $("#sideCategory")
@@ -59,17 +57,11 @@ $(function () {
             $('#sideCategory')
                     .removeClass("sticky-top")
                     .css("top", ($("#mainContent").height() - $("#sideCategory").height()) > 0 ? $("#mainContent").height() - $("#sideCategory").height() : "0");
-
         }
     });
-
-
     $("#topButton").click(function () {
         topFunction();
     });
-
-
-
     $(document)
             .on("click", "a.is-ajax", function (e) {
                 e.preventDefault();
@@ -79,7 +71,7 @@ $(function () {
                 let params = (new URL(url)).searchParams;
                 $("#loading").show();
                 closeNav(sidenav);
-
+                topFunction();
                 if (params.get('module') === 'home') {
                     $("#newest").fadeIn(500);
                 } else {
@@ -103,19 +95,37 @@ $(function () {
                             alert(response);
                         });
             })
-            .on('click', 'a.is-ajax', function () {
-                topFunction();
+            .on('click', '#is-company', function () {
+                $("#taxnum").fadeIn(500);
+                $("#billing-taxnum").removeAttr("disabled");
+            })
+            .on('click', '#is-person', function () {
+                $("#taxnum").fadeOut(500);
+                $("#billing-taxnum").attr("disabled", "disabled");
+            })
+            .on('click', '#shipping_same', function () {
+                $("#shippingData").fadeToggle(500);
+                $("#shippingData :input").each(function () {
+                    $(this).prop("disabled", function (i, attr) {
+                        return !attr;
+                    });
+                });
+                $("#shipping-name").val($("#billing-name").val());
+                $("#shipping-city").val($("#billing-city").val());
+                $("#shipping-address").val($("#billing-address").val());
+                $("#shipping-zip").val($("#billing-zip").val());
+            })
+            .on('submit', '#regForm', function () {
+
+
+
             })
             .on('click', '#resetButton', function () {
                 $(".form-check-input").removeAttr("checked");
             })
-            .on('submit', 'form', function () {
+            .on('submit', '#productFilter', function () {
                 $(this).find(":input").filter(function () {
                     return !this.value;
                 }).attr("disabled", "disabled");
             });
-
-
-
-
 });

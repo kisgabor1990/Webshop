@@ -90,19 +90,7 @@ if (isset($_POST) && isset($_POST['email'])) {
         `shipping_zip`="' . htmlspecialchars($_POST['shipping-zip'] ?? $_POST['billing-zip']) . '"';
 
         $result = mysqli_query($db, $query);
-        echo '.........................................<br>';
-        echo '..:: DEBUGGING ::.. <br>';
-        echo '<pre>';
-        var_dump($query);
-        echo '</pre>';
-        echo '.........................................<br>';
-
-        echo '.........................................<br>';
-        echo '..:: DEBUGGING ::.. <br>';
-        echo '<pre>';
-        var_dump(mysqli_error($db));
-        echo '</pre>';
-        echo '.........................................<br>';
+        
     } else {
 
         $error_msg = '<ul class="mb-0">';

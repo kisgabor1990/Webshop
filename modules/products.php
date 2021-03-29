@@ -1,6 +1,6 @@
 <?php
 
-require './includes/db_connection.php';
+require('./includes/db_connection.php');
 
 
 if (isset($_GET['id'])) {

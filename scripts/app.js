@@ -14,7 +14,7 @@ function closeNav(sidenav) {
 
 $(function () {
 
-    $('[data-toggle="tooltip"]').tooltip();
+    $('[data-tooltip="tooltip"]').tooltip();
 
     // Aktív classok pakolása, oldal betöltésekor
     let params = new URL(window.location.href).searchParams;
@@ -97,7 +97,7 @@ $(function () {
                     $("#mainContent").hide().html(data).fadeIn(500);
                     window.history.pushState("", "", this_r.attr("href"));
                     $("#loading").hide();
-                    $('[data-toggle="tooltip"]').tooltip();
+                    $('[data-tooltip="tooltip"]').tooltip();
                 })
                         .fail(function (response) {
                             alert(response);

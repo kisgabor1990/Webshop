@@ -91,15 +91,41 @@
                                             </div>
                                             <div class="form-row">
                                                 <div class="col-auto">
-                                                    <button type="submit" id="searchButton" class="btn btn-outline-warning" data-toggle="tooltip" data-placement="right" title="Kereés!"><i class="fas fa-search"></i></button>
+                                                    <button type="submit" id="searchButton" class="btn btn-outline-warning" data-tooltip="tooltip" data-placement="right" title="Kereés!"><i class="fas fa-search"></i></button>
                                                 </div>
                                             </div>
                                         </form>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col d-flex align-items-end justify-content-end">
-                                <a id="cartButton" class="btn btn-outline-success btn-circle btn-xl mr-2 is-ajax nav-kosar" href="index.php?module=kosar" data-toggle="tooltip" data-placement="right" title="Kosaram!"><i class="fas fa-shopping-cart"></i> (0)</a>
+                            <div class="col d-flex align-items-center justify-content-end">
+
+                                <div>
+                                    <a id="caartButton" class="btn btn-outline-success btn-circle btn-xl mr-2 is-ajax nav-kosar" href="index.php?module=kosar" data-tooltip="tooltip" data-placement="right" title="Kosaram!">
+                                        <i class="fas fa-shopping-cart"></i> (0)
+                                    </a>
+                                </div>
+                                <div class="dropdown">
+                                    <button class="btn btn-outline-success btn-circle btn-xl mr-2" type="button" id="profilButton" data-toggle="dropdown" data-tooltip="tooltip" data-placement="right" title="Profil!" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fas fa-user"></i>
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="profilButton">
+                                        <form class="px-4 py-3">
+                                            <div class="form-group">
+                                                <label for="email">Email cím</label>
+                                                <input type="email" class="form-control" id="email" placeholder="email@example.com">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="password">Jelszó</label>
+                                                <input type="password" class="form-control" id="password" placeholder="Password">
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Bejelentkezés</button>
+                                        </form>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Nincs még fiókja? Regisztráljon!</a>
+                                        <a class="dropdown-item" href="#">Elfelejtette jelszavát?</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
